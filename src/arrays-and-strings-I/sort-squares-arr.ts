@@ -11,10 +11,6 @@ Space Complexity: O(n)
 */
 
 export function sortSquaresArr(arr: number[]) {
-  if (arr == null) {
-    return null;
-  }
-
   let i = 0;
   let j = arr.length - 1;
 

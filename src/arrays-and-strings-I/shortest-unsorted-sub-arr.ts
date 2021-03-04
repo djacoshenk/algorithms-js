@@ -11,10 +11,6 @@ Space Complexity: O(1)
 */
 
 export function shortestUnsortedSubArr(arr: number[]) {
-  if (arr == null || arr.length == 0) {
-    return null;
-  }
-
   let i = 0;
   let j = arr.length - 1;
 

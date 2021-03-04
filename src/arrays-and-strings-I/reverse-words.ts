@@ -11,11 +11,6 @@ Space Complexity: O(n)
 */
 
 export function reverseWords(str: string) {
-  // check for falsy values (null, undefined, empty strings)
-  if (!str) {
-    return str;
-  }
-
   let i = str.length - 1;
   let j = str.length;
   let reversedStr = '';

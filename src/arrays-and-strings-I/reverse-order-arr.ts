@@ -11,11 +11,6 @@ Space Complexity: O(1) aka constant space
 */
 
 export function reverseOrderArr(arr: number[]) {
-  // check for null/undefined
-  if (arr == null) {
-    return;
-  }
-
   let i = 0;
   let j = arr.length - 1;
 
