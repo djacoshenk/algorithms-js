@@ -49,4 +49,4 @@ function printArrayHelper(buffer: number[]) {
   console.log(buffer);
 }
 
-console.log(printCombos([1, 2, 3, 4, 5], 3));
+printCombos([1, 2, 3, 4, 5], 3);

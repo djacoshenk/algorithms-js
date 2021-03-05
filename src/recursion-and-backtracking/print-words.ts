@@ -73,4 +73,4 @@ function printArray(buffer: string[]) {
   console.log(buffer);
 }
 
-console.log(printWords([2, 3, 4]));
+printWords([2, 3, 4]);
