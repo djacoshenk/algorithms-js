@@ -24,8 +24,8 @@ function printWordsHelper(
   bufferIndex: number
 ) {
   // termination case
-  if (bufferIndex >= buffer.length || startIndex >= arr.length) {
-    printArray(buffer);
+  if (bufferIndex === buffer.length || startIndex === arr.length) {
+    printArray(buffer, bufferIndex);
     return;
   }
 
@@ -69,8 +69,8 @@ function getLettersHelper(digit: number) {
   }
 }
 
-function printArray(buffer: string[]) {
-  console.log(buffer);
+function printArray(buffer: string[], bufferIndex: number) {
+  console.log(buffer.slice(0, bufferIndex));
 }
 
 printWords([2, 3, 4]);
