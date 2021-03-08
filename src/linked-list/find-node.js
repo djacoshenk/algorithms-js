@@ -1,8 +1,5 @@
-export class Node {
-  data: number;
-  next: Node | null;
-
-  constructor(data: number, next: Node | null = null) {
+class Node {
+  constructor(data, next = null) {
     this.data = data;
     this.next = next;
   }
@@ -13,17 +10,15 @@ export class Node {
 }
 
 class LinkedList {
-  head: Node;
-  tail: Node;
-
-  constructor(head: Node, tail: Node) {
+  constructor(head, tail) {
     this.head = head;
     this.tail = tail;
   }
 
-  findNode(n: number) {
-    let node: Node | null = this.head;
+  findNode(n) {
+    let node = this.head;
 
+    // i represents the number of times you want to call getNext() - if you want node 2, you would call getNext() only once
     for (let i = 0; i < n - 1; i++) {
       if (node != null) {
         node = node.getNext();
