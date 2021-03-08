@@ -11,59 +11,59 @@ Space Complexity: O(1)
 */
 
 export function shortestUnsortedSubArr(arr: number[]) {
-  let i = 0;
-  let j = arr.length - 1;
+  let start = 0;
+  let end = arr.length - 1;
 
   // find dip
-  while (i < j) {
-    if (arr[i] > arr[i + 1]) {
+  while (start < end) {
+    if (arr[start] > arr[start + 1]) {
       break;
     }
 
-    i++;
+    start++;
   }
 
   // no dip found, array is already sorted
-  if (i === j) {
+  if (start === end) {
     return null;
   }
 
   // find bump
-  while (j > 0) {
-    if (arr[j] < arr[j - 1]) {
+  while (end > 0) {
+    if (arr[end] < arr[end - 1]) {
       break;
     }
 
-    j--;
+    end--;
   }
 
   // find min and max of arr[start..end]
-  let k = i;
-  let min = arr[k];
-  let max = arr[k];
+  let sub = start;
+  let min = arr[sub];
+  let max = arr[sub];
 
-  while (k <= j) {
-    if (arr[k] > max) {
-      max = arr[k];
+  while (sub <= end) {
+    if (arr[sub] > max) {
+      max = arr[sub];
     }
 
-    if (arr[k] < min) {
-      min = arr[k];
+    if (arr[sub] < min) {
+      min = arr[sub];
     }
 
-    k++;
+    sub++;
   }
 
   // expand start and end outward
-  while (i > 0 && arr[i - 1] > min) {
-    i--;
+  while (start > 0 && arr[start - 1] > min) {
+    start--;
   }
 
-  while (j < arr.length - 1 && arr[j + 1] < max) {
-    j++;
+  while (end < arr.length - 1 && arr[end + 1] < max) {
+    end++;
   }
 
-  return arr.slice(i, j + 1);
+  return arr.slice(start, end + 1);
 }
 
-console.log(shortestUnsortedSubArr([1, 3, 5, 2, 6, 4, 7, 8, 9]));
+console.log(shortestUnsortedSubArr([1, 3, 5, 2, 6, 4, 7, 8, 9])); // [3, 5, 2, 6, 4]

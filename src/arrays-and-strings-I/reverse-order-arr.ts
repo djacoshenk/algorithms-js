@@ -11,13 +11,14 @@ Space Complexity: O(1) aka constant space
 */
 
 export function reverseOrderArr(arr: number[]) {
-  let i = 0;
-  let j = arr.length - 1;
+  let start = 0;
+  let end = arr.length - 1;
 
-  while (i < j) {
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-    i++;
-    j--;
+  while (start < end) {
+    // swap elements and move pointers inward
+    [arr[start], arr[end]] = [arr[end], arr[start]];
+    start++;
+    end--;
   }
 
   return arr;

@@ -11,18 +11,19 @@ Space Complexity: O(1)
 */
 
 export function twoSumArr(arr: number[], target: number) {
-  let i = 0;
-  let j = arr.length - 1;
+  let start = 0;
+  let end = arr.length - 1;
 
-  while (i <= j) {
-    let sum = arr[i] + arr[j];
+  while (start <= end) {
+    // calculate the sum of the two elements
+    let sum = arr[start] + arr[end];
 
     if (sum < target) {
-      i++;
+      start++;
     } else if (sum > target) {
-      j--;
+      end--;
     } else if (sum === target) {
-      return [arr[i], arr[j]];
+      return [arr[start], arr[end]];
     }
   }
 

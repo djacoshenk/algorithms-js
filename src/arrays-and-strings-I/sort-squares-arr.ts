@@ -11,20 +11,20 @@ Space Complexity: O(n)
 */
 
 export function sortSquaresArr(arr: number[]) {
-  let i = 0;
-  let j = arr.length - 1;
+  let start = 0;
+  let end = arr.length - 1;
 
   // allocate a new array and track its index
   let result = new Array(arr.length);
   let resultIndex = result.length - 1;
 
-  while (i <= j) {
-    if (Math.abs(arr[i]) > Math.abs(arr[j])) {
-      result[resultIndex] = Math.pow(arr[i], 2);
-      i++;
+  while (start <= end) {
+    if (Math.abs(arr[start]) > Math.abs(arr[end])) {
+      result[resultIndex] = Math.pow(arr[start], 2);
+      start++;
     } else {
-      result[resultIndex] = Math.pow(arr[j], 2);
-      j--;
+      result[resultIndex] = Math.pow(arr[end], 2);
+      end--;
     }
 
     resultIndex--;
