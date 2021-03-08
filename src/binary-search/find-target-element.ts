@@ -2,7 +2,7 @@
 
 Given a sorted array, search for a target item.
 
-Input: [1,2,4,7,8,9]
+Input: [1,2,4,7,8,9], 2
 Output: 1
 
 Time Complexity:​ O(log(n))

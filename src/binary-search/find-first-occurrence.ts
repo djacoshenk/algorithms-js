@@ -1,6 +1,6 @@
 /*
 
-Given a sorted array that can contain duplicates, find the first occurrence of thetarget element. 
+Given a sorted array that can contain duplicates, find the first occurrence of the target element. 
 
 Input: [1,3,4,6,6,6,7] and Target = 6
 Output: 3

@@ -1,6 +1,6 @@
 /*
 
-You are given a sorted array A and a target T. Return the index where it would be placed ifinserted in order.
+You are given a sorted array A and a target T. Return the index where it would be placed if inserted in order.
 
 Input: [1,2,4,4,5,6,8] and Target = 3
 Output: 2

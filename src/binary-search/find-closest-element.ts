@@ -1,6 +1,6 @@
 /*
 
-Given a sorted array of Integers, find the target. If the target is not found,return the element closest to the target.
+Given a sorted array of integers, find the target. If the target is not found, return the element closest to the target.
 
 Input: [1,2,4,5,7,8,9] and Target = 6
 Output: 3 or 4 

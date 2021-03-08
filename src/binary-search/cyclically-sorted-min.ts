@@ -1,6 +1,6 @@
 /*
 
-Given an array that is cyclically sorted, find the minimum element. A cyclically sortedarray is a sorted array rotated by some number of elements. Assume all elementsare unique.
+Given an array that is cyclically sorted, find the minimum element. A cyclically sorted array is a sorted array rotated by some number of elements. Assume all elementsare unique.
 
 Input: [4,5,1,2,3]
 Output: 2
