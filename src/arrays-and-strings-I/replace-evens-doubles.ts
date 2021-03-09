@@ -5,8 +5,8 @@ Given an array of numbers, replace each even number with two of the same number.
 Input:  [1,2,5,6,8,-1,-1,-1] 
 Output: [1,2,2,5,6,6,8,8]
 
-Time Complexity: O(n) aka linear time
-Space Complexity: O(1) aka constant space
+Time Complexity: O(n)
+Space Complexity: O(1)
 
 */
 
