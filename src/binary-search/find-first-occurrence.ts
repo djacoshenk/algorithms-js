@@ -11,6 +11,10 @@ Space Complexity: O(1)
 */
 
 export function findFirstOccurrence(arr: number[], target: number) {
+  if (arr == null || target == null) {
+    return -1;
+  }
+
   let start = 0;
   let end = arr.length - 1;
 
