@@ -29,11 +29,10 @@ export class LinkedList {
     }
 
     this.tail = addTo;
-
-    return this.head;
   }
 }
 
-const list = new LinkedList(new Node(1, new Node(2)), new Node(2));
+const list = new LinkedList(new Node(1), new Node(1));
 
-console.log(list.append(new Node(3)));
+console.log(list.append(new Node(2)));
+console.log(list);
