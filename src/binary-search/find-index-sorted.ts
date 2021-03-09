@@ -2,13 +2,13 @@
 
 You are given a sorted array A and a target T. Return the index where it would be placed if inserted in order.
 
-Input: [1,2,4,4,5,6,8] and Target = 3
+Input: A = [1,2,4,4,5,6,8], Target = 3
 Output: 2
 
-Input: [1,2,4,4,5,6,8] and Target = 0
+Input: A = [1,2,4,4,5,6,8], Target = 0
 Output: 0
 
-Input: [1,2,4,4,5,6,8] and Target = 4
+Input: A = [1,2,4,4,5,6,8], Target = 4
 Output: 4
 
 Time Complexity: O(log(n))
@@ -46,3 +46,4 @@ export function findIndexSorted(arr: number[], target: number) {
 console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 3)); // 2
 console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 0)); // 0
 console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 4)); // 4
+console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 9)); // 7
