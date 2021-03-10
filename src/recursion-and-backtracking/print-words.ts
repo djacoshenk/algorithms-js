@@ -5,6 +5,9 @@ Phone Number Mnemonics: Given an N digit phone number, print all the strings tha
 213 => AD, AE, AF, BD, BE, BF, CE, CE, CF
 456 => GJM, GJN, GJO, GKM, GKN, GKO,.. etc.
 
+Time Complexity:​ Exponential Complexity - O(4​n​), where ​n​ is the size of the phone number.
+Space Complexity:​ O(n), where ​n​ is the size of the phone number. The O(n) space is taken both by the buffer and the call stack.
+
 */
 
 export function printWords(phoneNumber: number[]) {

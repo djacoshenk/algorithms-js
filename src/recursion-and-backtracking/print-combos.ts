@@ -2,6 +2,7 @@
 
 Given an array of integers, print all combinations of size X.
 
+Time Complexity: Factorial Complexity
 Space Complexity: O(X). We use O(X) space both in the buffer allocation and on the recursion stack.
 
 */
