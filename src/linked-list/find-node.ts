@@ -10,9 +10,21 @@ export class Node {
   getNext() {
     return this.next;
   }
+
+  setNext(next: Node) {
+    this.next = next;
+  }
+
+  getData() {
+    return this.data;
+  }
+
+  setData(data: number) {
+    this.data = data;
+  }
 }
 
-class LinkedList {
+export class LinkedList {
   head: Node;
   tail: Node;
 
@@ -21,10 +33,26 @@ class LinkedList {
     this.tail = tail;
   }
 
+  getHead() {
+    return this.head;
+  }
+
+  setHead(head: Node) {
+    this.head = head;
+  }
+
+  getTail() {
+    return this.tail;
+  }
+
+  setTail(tail: Node) {
+    this.tail = tail;
+  }
+
   findNode(n: number) {
     let node: Node | null = this.head;
 
-    for (let i = 0; i < n - 1; i++) {
+    for (let i = 1; i < n; i++) {
       if (node != null) {
         node = node.getNext();
       } else {
@@ -39,10 +67,3 @@ class LinkedList {
     return node;
   }
 }
-
-let list = new LinkedList(new Node(1, new Node(2, new Node(3))), new Node(3));
-
-console.log(list.findNode(1));
-console.log(list.findNode(2));
-console.log(list.findNode(3));
-console.log(list.findNode(4));
