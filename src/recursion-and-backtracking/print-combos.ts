@@ -25,13 +25,14 @@ function printCombosHelper(
   startIndex: number,
   bufferIndex: number
 ) {
-  // termination cases - buffer full
+  // termination case - buffer full
   if (bufferIndex === buffer.length) {
     printArrayHelper(buffer);
 
     return;
   }
 
+  // termination cases - startIndex reaches end of array
   if (startIndex === arr.length) {
     return;
   }
