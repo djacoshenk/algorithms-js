@@ -6,22 +6,6 @@ export class Node {
     this.data = data;
     this.next = next;
   }
-
-  getNext() {
-    return this.next;
-  }
-
-  setNext(next: Node) {
-    this.next = next;
-  }
-
-  getData() {
-    return this.data;
-  }
-
-  setData(data: number) {
-    this.data = data;
-  }
 }
 
 export class LinkedList {
@@ -33,28 +17,12 @@ export class LinkedList {
     this.tail = tail;
   }
 
-  getHead() {
-    return this.head;
-  }
-
-  setHead(head: Node) {
-    this.head = head;
-  }
-
-  getTail() {
-    return this.tail;
-  }
-
-  setTail(tail: Node) {
-    this.tail = tail;
-  }
-
   findNode(n: number) {
     let node: Node | null = this.head;
 
     for (let i = 1; i < n; i++) {
       if (node != null) {
-        node = node.getNext();
+        node = node.next;
       } else {
         return `No node at index ${n}`;
       }
@@ -67,3 +35,20 @@ export class LinkedList {
     return node;
   }
 }
+
+// create nodes
+const NODE_3 = new Node(3);
+const NODE_2 = new Node(2, NODE_3);
+const NODE_1 = new Node(1, NODE_2);
+
+// create linked list from nodes
+const LIST_1 = new LinkedList(NODE_1, NODE_3);
+
+// find node 1
+console.log(LIST_1.findNode(1));
+
+// find node 2
+console.log(LIST_1.findNode(2));
+
+// find node 3
+console.log(LIST_1.findNode(3));

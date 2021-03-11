@@ -6,14 +6,6 @@ export class Node {
     this.data = data;
     this.next = next;
   }
-
-  getNext() {
-    return this.next;
-  }
-
-  setNext(next: Node | null) {
-    this.next = next;
-  }
 }
 
 export class LinkedList {
@@ -30,8 +22,8 @@ export class LinkedList {
     let curr = this.head;
 
     while (curr != null) {
-      let next = curr.getNext();
-      curr.setNext(prev);
+      let next = curr.next;
+      curr.next = prev;
       prev = curr;
       curr = next;
     }

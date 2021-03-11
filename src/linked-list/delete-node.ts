@@ -15,22 +15,6 @@ export class Node {
     this.data = data;
     this.next = next;
   }
-
-  getNext() {
-    return this.next;
-  }
-
-  setNext(next: Node | null) {
-    this.next = next;
-  }
-
-  getData() {
-    return this.data;
-  }
-
-  setData(data: number) {
-    this.data = data;
-  }
 }
 
 export class LinkedList {
@@ -42,46 +26,46 @@ export class LinkedList {
     this.tail = tail;
   }
 
-  getHead() {
-    return this.head;
-  }
-
-  setHead(head: Node) {
-    this.head = head;
-  }
-
-  getTail() {
-    return this.tail;
-  }
-
-  setTail(tail: Node) {
-    this.tail = tail;
-  }
-
   deleteNode(n: Node, prev: Node) {
-    if (n == null) {
+    if (n === null) {
       return;
     }
 
     if (n === this.head) {
-      this.head = n.getNext();
-    } else if (n === this.tail) {
-      this.tail = prev;
+      this.head = n.next;
     }
 
-    if (prev != null) {
-      n.setNext(n.getNext());
+    if (n === this.tail) {
+      this.tail = prev;
+      this.tail.next = null;
+    }
+
+    if (prev !== null) {
+      prev.next = n.next;
     }
   }
 
   deleteNodeWithoutPrev(n: Node) {
-    let next = n.getNext();
-
-    if (next == null) {
+    // if the node we want to delete is the tail, we cannot delete it
+    if (n.next === null) {
       return;
     }
 
-    n.setData(next.getData());
-    this.deleteNode(next, n);
+    n.data = n.next.data;
+
+    this.deleteNode(n.next, n);
   }
 }
+
+// create nodes
+const NODE_4 = new Node(4);
+const NODE_3 = new Node(3, NODE_4);
+const NODE_2 = new Node(2, NODE_3);
+const NODE_1 = new Node(1, NODE_2);
+
+// create linked list from nodes
+const LIST_1 = new LinkedList(NODE_1, NODE_4);
+
+LIST_1.deleteNode(NODE_2, NODE_1);
+
+console.log(LIST_1);

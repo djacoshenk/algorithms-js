@@ -15,22 +15,6 @@ export class Node {
     this.data = data;
     this.next = next;
   }
-
-  getNext() {
-    return this.next;
-  }
-
-  setNext(next: Node) {
-    this.next = next;
-  }
-
-  getData() {
-    return this.data;
-  }
-
-  setData(data: number) {
-    this.data = data;
-  }
 }
 
 export class LinkedList {
@@ -42,91 +26,82 @@ export class LinkedList {
     this.tail = tail;
   }
 
-  getHead() {
-    return this.head;
-  }
-
-  setHead(head: Node) {
-    this.head = head;
-  }
-
-  getTail() {
-    return this.tail;
-  }
-
-  setTail(tail: Node) {
-    this.tail = tail;
-  }
-
   append(addTo: Node) {
     if (this.head == null) {
       this.head = addTo;
     } else {
-      if (this.tail == null) {
-        this.tail = addTo;
-      } else {
-        this.tail.setNext(addTo);
-      }
+      this.tail!.next = addTo;
     }
 
     this.tail = addTo;
   }
-
-  sortList(input: LinkedList) {
-    if (input == null) {
-      return new LinkedList(); // empty list
-    }
-
-    let list0 = new LinkedList(); // initialize an empty list for 0s
-    let list1 = new LinkedList(); // initialize an empty list for 1s
-    let list2 = new LinkedList(); // initialize an empty list for 2s
-
-    let current = input.head;
-
-    while (current != null) {
-      let data = current.getData(); // get data from node --> 0, 1, or 2
-
-      if (data === 0) {
-        list0.append(current);
-      } else if (data === 1) {
-        list1.append(current);
-      } else if (data === 2) {
-        list2.append(current);
-      } else {
-        throw new Error('Invalid value');
-      }
-
-      current = current.getNext(); // iterate to the next node
-    }
-
-    // set tails to null
-    if (list0.tail != null) {
-      list0.tail.next = null;
-    }
-
-    if (list1.tail != null) {
-      list1.tail.next = null;
-    }
-
-    if (list2.tail != null) {
-      list2.tail.next = null;
-    }
-
-    // attach lists in sequence
-    let result = new LinkedList();
-    this.appendList(list0, result);
-    this.appendList(list1, result);
-    this.appendList(list2, result);
-
-    return result;
-  }
-
-  appendList(toAppend: LinkedList, original: LinkedList) {
-    if (toAppend == null || toAppend.head == null) {
-      return;
-    }
-
-    original.append(toAppend.head);
-    original.tail = toAppend.tail;
-  }
 }
+
+function sortList(input: LinkedList) {
+  if (input == null) {
+    return new LinkedList(); // empty list
+  }
+
+  let list0 = new LinkedList(); // initialize an empty list for 0s
+  let list1 = new LinkedList(); // initialize an empty list for 1s
+  let list2 = new LinkedList(); // initialize an empty list for 2s
+
+  let current = input.head;
+
+  while (current != null) {
+    let data = current.data; // get data from node --> 0, 1, or 2
+
+    if (data === 0) {
+      list0.append(current);
+    } else if (data === 1) {
+      list1.append(current);
+    } else if (data === 2) {
+      list2.append(current);
+    } else {
+      throw new Error('Invalid value');
+    }
+
+    current = current.next; // iterate to the next node
+  }
+
+  // set tails to null
+  if (list0.tail != null) {
+    list0.tail.next = null;
+  }
+
+  if (list1.tail != null) {
+    list1.tail.next = null;
+  }
+
+  if (list2.tail != null) {
+    list2.tail.next = null;
+  }
+
+  // attach lists in sequence
+  let result = new LinkedList();
+  appendList(list0, result);
+  appendList(list1, result);
+  appendList(list2, result);
+
+  return result;
+}
+
+function appendList(toAppend: LinkedList, result: LinkedList) {
+  if (toAppend == null || toAppend.head == null) {
+    return;
+  }
+
+  result.append(toAppend.head);
+  result.tail = toAppend.tail;
+}
+
+const NODE_6 = new Node(0);
+const NODE_5 = new Node(2, NODE_6);
+const NODE_4 = new Node(1, NODE_5);
+const NODE_3 = new Node(0, NODE_4);
+const NODE_2 = new Node(1, NODE_3);
+const NODE_1 = new Node(2, NODE_2);
+
+const LIST_1 = new LinkedList(NODE_1, NODE_6);
+
+console.log(sortList(LIST_1));

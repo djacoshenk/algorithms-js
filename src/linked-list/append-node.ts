@@ -6,10 +6,6 @@ export class Node {
     this.data = data;
     this.next = next;
   }
-
-  setNext(next: Node) {
-    this.next = next;
-  }
 }
 
 export class LinkedList {
@@ -28,10 +24,25 @@ export class LinkedList {
       if (this.tail === null) {
         this.tail = addTo;
       } else {
-        this.tail.setNext(addTo);
+        this.tail.next = addTo;
       }
     }
 
     this.tail = addTo;
   }
 }
+// create nodes
+const NODE_3 = new Node(3);
+const NODE_2 = new Node(2, NODE_3);
+const NODE_1 = new Node(1, NODE_2);
+
+// create linked list from nodes
+const LIST_1 = new LinkedList(NODE_1, NODE_3);
+
+// create new node to append
+const NODE_4 = new Node(4);
+
+// append new node to linked list
+LIST_1.appendNode(NODE_4);
+
+console.log(LIST_1);
