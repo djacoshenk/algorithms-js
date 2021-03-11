@@ -4,7 +4,7 @@ Search array of unknown length. You are given an array, but you don't know the l
 
 */
 
-export function findWithUknownLength(arr: number[], target: number) {
+export function findWithUnknownLength(arr: number[], target: number) {
   if (arr == null || arr.length === 0) {
     return -1;
   }

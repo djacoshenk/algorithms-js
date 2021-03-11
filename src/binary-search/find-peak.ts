@@ -15,21 +15,22 @@ export function findPeak(arr: number[]) {
     return -1;
   }
 
-  let low = 0;
-  let high = arr.length - 1;
+  let start = 0;
+  let end = arr.length - 1;
 
-  while (low <= high) {
-    let mid = Math.floor(low + (high - low) / 2);
+  while (start <= end) {
+    let mid = Math.floor(start + (end - start) / 2);
 
-    let left = mid > 0 ? arr[mid - 1] : -1;
-    let right = mid < arr.length - 1 ? arr[mid + 1] : -1;
+    let left = mid > 0 ? arr[mid - 1] : -Infinity;
+    let right = mid < arr.length - 1 ? arr[mid + 1] : -Infinity;
 
     if (left < arr[mid] && right > arr[mid]) {
-      low = mid + 1;
+      //
+      start = mid + 1;
     } else if (right < arr[mid] && left > arr[mid]) {
-      high = mid - 1;
+      end = mid - 1;
     } else if (right > arr[mid] && left > arr[mid]) {
-      high = mid - 1;
+      end = mid - 1;
     } else {
       return mid;
     }
@@ -37,3 +38,8 @@ export function findPeak(arr: number[]) {
 
   return -1;
 }
+
+console.log(findPeak([1, 3, 4, 5, 2])); // 3
+console.log(findPeak([5, 3, 1])); // 0
+console.log(findPeak([1, 3, 5])); // 2
+console.log(findPeak([7, 6, 5, 1, 2, 3, 4, 0])); // 0

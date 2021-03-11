@@ -17,7 +17,7 @@ export function findClosestElement(arr: number[], target: number) {
 
   while (start <= end) {
     let mid = Math.floor(start + (end - start) / 2);
-    result = record(arr, mid, result, target);
+    result = recordHelper(arr, mid, result, target);
 
     if (arr[mid] > target) {
       end = mid - 1;
@@ -31,17 +31,26 @@ export function findClosestElement(arr: number[], target: number) {
   return result;
 }
 
-function record(arr: number[], mid: number, result: number, target: number) {
+function recordHelper(
+  arr: number[],
+  mid: number,
+  result: number,
+  target: number
+) {
   // if the result is -1 or the diff between arr[mid] and target is less than the diff between arr[result] and target, then it is closer, so return mid
   if (
     result === -1 ||
-    Math.abs(arr[mid] - target) < Math.abs(arr[result] - target)
+    differenceHelper(arr[mid], target) < differenceHelper(arr[result], target)
   ) {
     return mid;
   }
 
   // if the diff between arr[mid] and target is greater than the diff between arr[result] and target, then it is further away, so return the prev result
   return result;
+}
+
+function differenceHelper(n: number, target: number) {
+  return Math.abs(n - target);
 }
 
 console.log(findClosestElement([1, 2, 4, 5, 7, 8, 9], 6)); // 3
