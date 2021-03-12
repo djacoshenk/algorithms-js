@@ -48,7 +48,7 @@ function sortList(input: LinkedList) {
 
   let current = input.head;
 
-  while (current != null) {
+  while (current !== null) {
     let data = current.data; // get data from node --> 0, 1, or 2
 
     if (data === 0) {
@@ -65,29 +65,29 @@ function sortList(input: LinkedList) {
   }
 
   // set tails to null
-  if (list0.tail != null) {
+  if (list0.tail !== null) {
     list0.tail.next = null;
   }
 
-  if (list1.tail != null) {
+  if (list1.tail !== null) {
     list1.tail.next = null;
   }
 
-  if (list2.tail != null) {
+  if (list2.tail !== null) {
     list2.tail.next = null;
   }
 
   // attach lists in sequence
   let result = new LinkedList();
-  appendList(list0, result);
-  appendList(list1, result);
-  appendList(list2, result);
+  appendList(result, list0);
+  appendList(result, list1);
+  appendList(result, list2);
 
   return result;
 }
 
-function appendList(toAppend: LinkedList, result: LinkedList) {
-  if (toAppend == null || toAppend.head == null) {
+function appendList(result: LinkedList, toAppend: LinkedList) {
+  if (toAppend === null || toAppend.head === null) {
     return;
   }
 

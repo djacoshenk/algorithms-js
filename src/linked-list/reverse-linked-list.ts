@@ -1,3 +1,12 @@
+/*
+
+Reverse a linked list. You should use O(1) space.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+*/
+
 export class Node {
   data: number;
   next: Node | null;
@@ -16,18 +25,18 @@ export class LinkedList {
     this.head = head;
     this.tail = tail;
   }
+}
 
-  reverseList() {
-    let prev = null;
-    let curr = this.head;
+export function reverseList(head: Node) {
+  let prev = null;
+  let curr: Node | null = head;
 
-    while (curr != null) {
-      let next = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = next;
-    }
-
-    return prev;
+  while (curr !== null) {
+    let next: Node | null = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
+
+  return prev;
 }
