@@ -7,25 +7,88 @@ Space Complexity: O(1)
 
 */
 
-export function findNumber(stack: number[], target: number) {
-  const tempStack: number[] = [];
-  let isInStack = false;
+export class Stack {
+  head: Node | null;
 
-  // if stack has no elements, this becomes zero and falsy
-  while (stack.length) {
-    if (stack[stack.length - 1] === target) {
-      isInStack = true;
+  constructor(head: Node | null = null) {
+    this.head = head;
+  }
+
+  isEmpty() {
+    if (this.head) {
+      return false;
+    } else {
+      return true;
     }
-
-    // push the last element of the stack onto the temp stack
-    tempStack.push(stack.pop()!);
   }
 
-  while (tempStack.length) {
-    stack.push(tempStack.pop()!);
+  push(toAdd: Node) {
+    toAdd.next = this.head;
+    this.head = toAdd;
   }
 
-  return isInStack;
+  pop() {
+    if (this.head) {
+      const data = this.head.data;
+      this.head = this.head.next;
+      return data;
+    } else {
+      return null;
+    }
+  }
+
+  peek() {
+    if (this.head) {
+      return this.head.data;
+    } else {
+      return null;
+    }
+  }
 }
 
-console.log(findNumber([1, 2, 3, 4, 5], 3));
+export class Node {
+  data: number;
+  next: Node | null;
+
+  constructor(data: number, next: Node | null = null) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
+export function findNumber(stack: Stack, target: number) {
+  if (stack === null) {
+    return false;
+  }
+
+  let temp = new Stack();
+  let found = false;
+
+  while (!stack.isEmpty()) {
+    if (stack.peek() === target) {
+      found = true;
+      break;
+    }
+
+    let toAdd = stack.pop()!;
+
+    temp.push(new Node(toAdd));
+  }
+
+  while (!temp.isEmpty()) {
+    let toAdd = temp.pop()!;
+
+    stack.push(new Node(toAdd));
+  }
+
+  return found;
+}
+
+const NODE_3 = new Node(3);
+const NODE_2 = new Node(2, NODE_3);
+const NODE_1 = new Node(1, NODE_2);
+const STACK_1 = new Stack(NODE_1);
+
+console.log(findNumber(STACK_1, 2)); // true
+console.log(findNumber(STACK_1, 3)); // true
+console.log(findNumber(STACK_1, 4)); // false
