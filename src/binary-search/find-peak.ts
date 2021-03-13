@@ -25,7 +25,6 @@ export function findPeak(arr: number[]) {
     let right = mid < arr.length - 1 ? arr[mid + 1] : -Infinity;
 
     if (left < arr[mid] && right > arr[mid]) {
-      //
       start = mid + 1;
     } else if (right < arr[mid] && left > arr[mid]) {
       end = mid - 1;
