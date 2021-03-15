@@ -28,6 +28,10 @@ export class LinkedList {
 }
 
 export function reverseList(head: Node) {
+  if (head === null) {
+    return null;
+  }
+
   let prev = null;
   let curr: Node | null = head;
 
