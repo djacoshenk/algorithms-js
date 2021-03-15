@@ -64,6 +64,7 @@ export function findNumber(stack: Stack, target: number) {
   let temp = new Stack();
   let found = false;
 
+  // if target node is found, then return true and break, otherwise push nodes to temp stack
   while (!stack.isEmpty()) {
     if (stack.peek() === target) {
       found = true;
@@ -75,6 +76,7 @@ export function findNumber(stack: Stack, target: number) {
     temp.push(new Node(toAdd));
   }
 
+  // reset original stack by pushing temp stack nodes to original stack
   while (!temp.isEmpty()) {
     let toAdd = temp.pop()!;
 
