@@ -18,14 +18,11 @@ export class LinkedList {
   }
 
   appendNode(addTo: Node) {
-    if (this.head === null) {
+    if (this.head === null || this.tail === null) {
       this.head = addTo;
+      this.tail = addTo;
     } else {
-      if (this.tail === null) {
-        this.tail = addTo;
-      } else {
-        this.tail.next = addTo;
-      }
+      this.tail.next = addTo;
     }
 
     this.tail = addTo;
