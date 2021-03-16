@@ -17,11 +17,7 @@ export function oneTrade(prices: number[]) {
 
   for (let i = 0; i < prices.length; i++) {
     minSoFar = Math.min(minSoFar, prices[i]);
-    let tradeDiff = prices[i] - minSoFar;
-
-    if (tradeDiff > maxTrade) {
-      maxTrade = tradeDiff;
-    }
+    maxTrade = Math.max(maxTrade, prices[i] - minSoFar);
   }
 
   return maxTrade;
@@ -30,3 +26,4 @@ export function oneTrade(prices: number[]) {
 console.log(oneTrade([5, 10, 7, 2, 6, 4, 7, 8, 5])); // 6
 console.log(oneTrade([5])); // 0
 console.log(oneTrade([5, 10])); // 5
+console.log(oneTrade([10, 9, 7, 6, 4, 2, 1])); // 0
