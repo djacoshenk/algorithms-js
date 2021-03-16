@@ -8,49 +8,37 @@ Space Complexity: O(K), because we store at most K nodes in the queue
 */
 
 export class Queue {
-  head: Node | null;
-  tail: Node | null;
+  arr: number[];
+  front: number;
+  back: number;
   length: number;
 
-  constructor(head: Node | null = null, tail: Node | null = null) {
-    this.head = head;
-    this.tail = tail;
+  constructor(capacity: number) {
+    this.arr = new Array(capacity);
+    this.front = 0;
+    this.back = 0;
     this.length = 0;
   }
 
   enqueue(data: number) {
-    const toAdd = new Node(data);
-
-    if (!this.head || !this.tail) {
-      this.head = toAdd;
-      this.tail = toAdd;
-      this.length++;
-    } else {
-      this.tail.next = toAdd;
-      this.tail = toAdd;
-      this.length++;
+    if (this.length === this.arr.length) {
+      throw new Error('Queue full');
     }
+
+    this.arr[this.back] = data;
+    this.back = (this.back + 1) % this.arr.length;
+    this.length++;
   }
 
   dequeue() {
-    if (!this.head) {
-      throw new Error('Underflow');
+    if (this.length === 0) {
+      throw new Error('Queue empty');
     }
 
-    const data = this.head.data;
-    this.head = this.head.next;
+    const data = this.arr[this.front];
+    this.front = (this.front + 1) % this.arr.length;
     this.length--;
     return data;
-  }
-}
-
-export class Node {
-  data: number;
-  next: Node | null;
-
-  constructor(data: number, next: Node | null = null) {
-    this.data = data;
-    this.next = next;
   }
 }
 
@@ -60,13 +48,13 @@ export function windowSum(arr: number[], windowSize: number) {
   }
 
   let sum = 0;
-  let queue = new Queue();
+  let queue = new Queue(arr.length);
 
   for (let i = 0; i < arr.length; i++) {
     if (queue.length === windowSize) {
-      let last = queue.dequeue();
+      const front = queue.dequeue();
 
-      sum -= last;
+      sum -= front;
     }
 
     queue.enqueue(arr[i]);

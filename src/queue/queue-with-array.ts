@@ -17,12 +17,12 @@ export class Queue {
     this.length = 0;
   }
 
-  enqueue(item: number) {
+  enqueue(data: number) {
     if (this.length === this.arr.length) {
       throw new Error('Queue full');
     }
 
-    this.arr[this.back] = item;
+    this.arr[this.back] = data;
     this.back = (this.back + 1) % this.arr.length;
     this.length++;
   }
@@ -32,7 +32,7 @@ export class Queue {
       throw new Error('Queue empty');
     }
 
-    let result = this.arr[this.front];
+    const result = this.arr[this.front];
     this.front = (this.front + 1) % this.arr.length;
     this.length--;
     return result;
@@ -47,4 +47,8 @@ QUEUE_1.enqueue(5); // [3, 4, 5, , ]
 QUEUE_1.enqueue(7); // [3, 4, 5, 7, ]
 QUEUE_1.enqueue(8); // [3, 4, 5, 7, 8]
 
-console.log(QUEUE_1);
+console.log(QUEUE_1.dequeue()); // 3
+
+QUEUE_1.enqueue(9); // [9, 4, 5, 7, 8]
+
+console.log(QUEUE_1.dequeue()); // 4

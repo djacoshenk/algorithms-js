@@ -46,14 +46,12 @@ export class Node {
   }
 }
 
-const NODE_3 = new Node(11);
-const NODE_2 = new Node(7, NODE_3);
-const NODE_1 = new Node(3, NODE_2);
+const QUEUE_1 = new Queue();
 
-const QUEUE_1 = new Queue(NODE_1, NODE_3);
+QUEUE_1.enqueue(2);
+QUEUE_1.enqueue(4);
+QUEUE_1.enqueue(6);
 
-QUEUE_1.enqueue(5); // enqueue a new Node with data of 5
-
-QUEUE_1.dequeue(); // dequeue the first Node
+console.log(QUEUE_1.dequeue());
 
 console.log(QUEUE_1);
