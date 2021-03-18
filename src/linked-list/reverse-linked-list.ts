@@ -17,16 +17,6 @@ export class Node {
   }
 }
 
-export class LinkedList {
-  head: Node | null;
-  tail: Node | null;
-
-  constructor(head: Node | null = null, tail: Node | null = null) {
-    this.head = head;
-    this.tail = tail;
-  }
-}
-
 export function reverseList(head: Node) {
   if (head === null) {
     return null;
@@ -44,3 +34,14 @@ export function reverseList(head: Node) {
 
   return prev;
 }
+
+const NODE_6 = new Node(6);
+const NODE_5 = new Node(5, NODE_6);
+const NODE_4 = new Node(4, NODE_5);
+const NODE_3 = new Node(3, NODE_4);
+const NODE_2 = new Node(2, NODE_3);
+const NODE_1 = new Node(1, NODE_2);
+
+console.log(NODE_1);
+
+console.log(reverseList(NODE_1));

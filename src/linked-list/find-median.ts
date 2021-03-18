@@ -21,10 +21,10 @@ export class Node {
 }
 
 export class LinkedList {
-  head: Node;
-  tail: Node;
+  head: Node | null;
+  tail: Node | null;
 
-  constructor(head: Node, tail: Node) {
+  constructor(head: Node | null = null, tail: Node | null = null) {
     this.head = head;
     this.tail = tail;
   }
@@ -53,3 +53,13 @@ export function findMedian(head: Node, tail: Node) {
 
   return slow;
 }
+
+const NODE_5 = new Node(5);
+const NODE_4 = new Node(4, NODE_5);
+const NODE_3 = new Node(3, NODE_4);
+const NODE_2 = new Node(2, NODE_3);
+const NODE_1 = new Node(1, NODE_2);
+
+const LIST_1 = new LinkedList(NODE_1, NODE_5);
+
+console.log(findMedian(LIST_1.head!, LIST_1.tail!)); // NODE_3

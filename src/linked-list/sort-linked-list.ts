@@ -27,17 +27,17 @@ export class LinkedList {
   }
 
   append(addTo: Node) {
-    if (this.head == null) {
+    if (!this.head || !this.tail) {
       this.head = addTo;
     } else {
-      this.tail!.next = addTo;
+      this.tail.next = addTo;
     }
 
     this.tail = addTo;
   }
 }
 
-function sortList(input: LinkedList) {
+export function sortList(input: LinkedList) {
   if (input == null) {
     return new LinkedList(); // empty list
   }
@@ -48,6 +48,7 @@ function sortList(input: LinkedList) {
 
   let current = input.head;
 
+  // iterate through all the nodes in the list (2 --> 1 --> 0 --> 1 --> 2 --> 0)
   while (current !== null) {
     let data = current.data; // get data from node --> 0, 1, or 2
 
@@ -64,7 +65,7 @@ function sortList(input: LinkedList) {
     current = current.next; // iterate to the next node
   }
 
-  // set tails to null
+  // set tails to null (1 --> 1 --> null)
   if (list0.tail !== null) {
     list0.tail.next = null;
   }
@@ -86,7 +87,7 @@ function sortList(input: LinkedList) {
   return result;
 }
 
-function appendList(result: LinkedList, toAppend: LinkedList) {
+export function appendList(result: LinkedList, toAppend: LinkedList) {
   if (toAppend === null || toAppend.head === null) {
     return;
   }
