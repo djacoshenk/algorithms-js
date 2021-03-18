@@ -8,9 +8,9 @@ export class Queue {
   head: Node | null;
   tail: Node | null;
 
-  constructor(head: Node | null = null, tail: Node | null = null) {
-    this.head = head;
-    this.tail = tail;
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
 
   enqueue(data: number) {
@@ -27,7 +27,7 @@ export class Queue {
 
   dequeue() {
     if (!this.head) {
-      throw new Error('Underflow');
+      throw new Error('Queue empty');
     }
 
     const data = this.head.data;
