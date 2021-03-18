@@ -10,8 +10,8 @@ Space Complexity: O(1)
 export class Stack {
   head: Node | null;
 
-  constructor(head: Node | null = null) {
-    this.head = head;
+  constructor() {
+    this.head = null;
   }
 
   isEmpty() {
@@ -22,7 +22,8 @@ export class Stack {
     }
   }
 
-  push(toAdd: Node) {
+  push(data: number) {
+    const toAdd = new Node(data);
     toAdd.next = this.head;
     this.head = toAdd;
   }
@@ -73,23 +74,24 @@ export function findNumber(stack: Stack, target: number) {
 
     let toAdd = stack.pop()!;
 
-    temp.push(new Node(toAdd));
+    temp.push(toAdd);
   }
 
   // reset original stack by pushing temp stack nodes to original stack
   while (!temp.isEmpty()) {
     let toAdd = temp.pop()!;
 
-    stack.push(new Node(toAdd));
+    stack.push(toAdd);
   }
 
   return found;
 }
 
-const NODE_3 = new Node(3);
-const NODE_2 = new Node(2, NODE_3);
-const NODE_1 = new Node(1, NODE_2);
-const STACK_1 = new Stack(NODE_1);
+const STACK_1 = new Stack();
+
+STACK_1.push(1);
+STACK_1.push(2);
+STACK_1.push(3);
 
 console.log(findNumber(STACK_1, 2)); // true
 console.log(findNumber(STACK_1, 3)); // true
