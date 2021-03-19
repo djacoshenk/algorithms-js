@@ -14,7 +14,7 @@ export function twoSumArr(arr: number[], target: number) {
   let start = 0;
   let end = arr.length - 1;
 
-  while (start <= end) {
+  while (start < end) {
     // calculate the sum of the two elements
     let sum = arr[start] + arr[end];
 
@@ -30,5 +30,3 @@ export function twoSumArr(arr: number[], target: number) {
   // if the arr does not pass any of the conditions, return null
   return null;
 }
-
-console.log(twoSumArr([1, 2, 3, 5, 6, 7], 11));

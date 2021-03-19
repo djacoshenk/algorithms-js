@@ -32,5 +32,3 @@ export function reverseWords(str: string) {
 
   return reversedStr;
 }
-
-console.log(reverseWords('I live in a house'));

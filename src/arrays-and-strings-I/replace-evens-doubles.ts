@@ -44,5 +44,3 @@ function findLastNumber(arr: number[]) {
 
   return i;
 }
-
-console.log(replaceEvensDoubles([1, 2, 5, 6, 8, -1, -1, -1]));
