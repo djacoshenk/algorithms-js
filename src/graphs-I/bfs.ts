@@ -7,11 +7,17 @@ Space Complexity: O(V)
 
 */
 
+const NODE_STATES = {
+  VISITED: 'VISITED',
+  UNVISITED: 'UNVISITED',
+  VISITING: 'VISITING',
+};
+
 export class Graph {
   nodes: Node[];
 
-  constructor(nodes: Node[] = []) {
-    this.nodes = nodes;
+  constructor() {
+    this.nodes = [];
   }
 }
 
@@ -19,21 +25,56 @@ export class Node {
   data: number;
   neighbors: Node[];
   state: string;
+  next: Node | null;
 
   constructor(data: number) {
     this.data = data;
-    this.neighbors = new Array<Node>();
+    this.neighbors = [];
     this.state = NODE_STATES.UNVISITED;
+    this.next = null;
   }
 }
 
-const NODE_STATES = {
-  VISITED: 'VISITED',
-  UNVISITED: 'UNVISITED',
-  VISITING: 'VISITING',
-};
+export class Queue {
+  head: Node | null;
+  tail: Node | null;
+
+  constructor(head: Node | null = null, tail: Node | null = null) {
+    this.head = head;
+    this.tail = tail;
+  }
+
+  enqueue(node: Node) {
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail!.next = node;
+      this.tail = node;
+    }
+  }
+
+  dequeue() {
+    if (!this.head) {
+      return null;
+    } else {
+      const node = this.head;
+      this.head = this.head.next;
+      return node;
+    }
+  }
+
+  isEmpty() {
+    if (!this.head) {
+      return true;
+    } else {
+      false;
+    }
+  }
+}
 
 export function bfs(graph: Graph, target: number) {
+  // iterate over nodes in graph
   for (let node of graph.nodes) {
     if (node.state === NODE_STATES.UNVISITED && bfsVisit(node, target)) {
       return true;
@@ -43,22 +84,23 @@ export function bfs(graph: Graph, target: number) {
   return false;
 }
 
-export function bfsVisit(start: Node, target: number) {
-  let queue = new Array<Node>();
-  queue.push(start);
-  start.state = NODE_STATES.VISITING;
+export function bfsVisit(node: Node, target: number) {
+  let queue = new Queue(); // initialize an empty queue
+  queue.enqueue(node); // enqueue the node
+  node.state = NODE_STATES.VISITING; // mark node as visiting
 
-  while (queue.length > 0) {
-    let current = queue.pop()!;
+  while (!queue.isEmpty()) {
+    let current = queue.dequeue()!; // dequeue node
 
     if (current.data === target) {
       return true;
     }
 
+    // iterate over the node's neighbors
     for (let neighbor of current.neighbors) {
       if (neighbor.state === NODE_STATES.UNVISITED) {
-        queue.push(neighbor);
-        neighbor.state = NODE_STATES.VISITING;
+        queue.enqueue(neighbor); // enqueue node
+        neighbor.state = NODE_STATES.VISITING; // mark node as visiting
       }
     }
 
@@ -67,26 +109,3 @@ export function bfsVisit(start: Node, target: number) {
 
   return false;
 }
-
-const GRAPH_1 = new Graph();
-
-const NODE_1 = new Node(1);
-const NODE_2 = new Node(2);
-const NODE_3 = new Node(3);
-const NODE_4 = new Node(4);
-const NODE_5 = new Node(5);
-const NODE_6 = new Node(6);
-
-GRAPH_1.nodes.push(NODE_1, NODE_2, NODE_3, NODE_4, NODE_5, NODE_6);
-
-NODE_1.neighbors.push(NODE_2);
-NODE_1.neighbors.push(NODE_3);
-NODE_2.neighbors.push(NODE_4);
-NODE_3.neighbors.push(NODE_5);
-NODE_4.neighbors.push(NODE_6);
-NODE_5.neighbors.push(NODE_6);
-
-console.log(GRAPH_1);
-
-console.log(bfs(GRAPH_1, 5)); // true
-console.log(bfs(GRAPH_1, 7)); // false
