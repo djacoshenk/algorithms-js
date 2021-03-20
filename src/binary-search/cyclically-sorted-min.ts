@@ -29,5 +29,3 @@ export function cyclicallySortedMin(arr: number[]) {
 
   return -1;
 }
-
-console.log(cyclicallySortedMin([4, 5, 1, 2, 3])); // 2

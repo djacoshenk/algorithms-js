@@ -42,8 +42,3 @@ export function findIndexSorted(arr: number[], target: number) {
 
   return -1;
 }
-
-console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 3)); // 2
-console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 0)); // 0
-console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 4)); // 4
-console.log(findIndexSorted([1, 2, 4, 4, 5, 6, 8], 9)); // 7
