@@ -11,6 +11,10 @@ Space Complexity: O(1)
 */
 
 export function shortestUnsortedSubArr(arr: number[]) {
+  if (arr.length === 0) {
+    return null;
+  }
+
   let start = 0;
   let end = arr.length - 1;
 
@@ -65,5 +69,3 @@ export function shortestUnsortedSubArr(arr: number[]) {
 
   return arr.slice(start, end + 1);
 }
-
-console.log(shortestUnsortedSubArr([1, 3, 5, 2, 6, 4, 7, 8, 9])); // [3, 5, 2, 6, 4]

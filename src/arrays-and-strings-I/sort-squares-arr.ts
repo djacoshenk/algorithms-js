@@ -21,10 +21,10 @@ export function sortSquaresArr(arr: number[]) {
   while (start <= end) {
     if (Math.abs(arr[start]) > Math.abs(arr[end])) {
       result[resultIndex] = Math.pow(arr[start], 2);
-      start++;
+      start++; // element at start is processed, so increment start counter
     } else {
       result[resultIndex] = Math.pow(arr[end], 2);
-      end--;
+      end--; // element at end is processed, so decrement end counter
     }
 
     resultIndex--;
@@ -32,5 +32,3 @@ export function sortSquaresArr(arr: number[]) {
 
   return result;
 }
-
-console.log(sortSquaresArr([-4, -2, -1, 0, 3, 5]));

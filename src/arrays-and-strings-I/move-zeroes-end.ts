@@ -25,5 +25,3 @@ export function moveZeroesEnd(arr: number[]) {
 
   return arr;
 }
-
-console.log(moveZeroesEnd([4, 2, 0, 1, 0, 3, 0]));

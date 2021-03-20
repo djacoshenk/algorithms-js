@@ -30,5 +30,3 @@ export function dutchFlagArrPartition(arr: number[], pivot: number) {
 
   return arr;
 }
-
-console.log(dutchFlagArrPartition([5, 2, 4, 4, 6, 4, 4, 3], 4)); // [3, 2, 4, 4, 4, 4, 6, 5]

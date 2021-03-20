@@ -23,5 +23,3 @@ export function reverseOrderArr(arr: number[]) {
 
   return arr;
 }
-
-console.log(reverseOrderArr([3, 5, 2, 5, 2, 3, 9]));
