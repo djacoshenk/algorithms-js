@@ -31,7 +31,7 @@ export class Interval {
 }
 
 export function hasOverlap(intervals: Interval[]) {
-  let points = new Array<Point>();
+  let points: Point[] = [];
 
   for (let interval of intervals) {
     points.push(new Point(interval.start, true));
@@ -52,19 +52,3 @@ export function hasOverlap(intervals: Interval[]) {
 
   return false;
 }
-
-const INTERVAL_1 = new Interval(5, 7);
-const INTERVAL_2 = new Interval(1, 3);
-const INTERVAL_3 = new Interval(6, 9);
-
-const INTERVALS_1 = [INTERVAL_1, INTERVAL_2, INTERVAL_3];
-
-console.log(hasOverlap(INTERVALS_1)); // true
-
-const INTERVAL_4 = new Interval(1, 3);
-const INTERVAL_5 = new Interval(3, 5);
-const INTERVAL_6 = new Interval(5, 7);
-
-const INTERVALS_2 = [INTERVAL_4, INTERVAL_5, INTERVAL_6];
-
-console.log(hasOverlap(INTERVALS_2)); // false

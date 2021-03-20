@@ -29,7 +29,7 @@ export class Interval {
 }
 
 export function mergeIntervals(intervals: Interval[]) {
-  let points = new Array<Point>();
+  let points: Point[] = [];
 
   // turn intervals into points
   for (let interval of intervals) {
@@ -40,7 +40,7 @@ export function mergeIntervals(intervals: Interval[]) {
   // sort points
   points.sort((a, b) => a.time - b.time);
 
-  let result = new Array<Interval>();
+  let result: Interval[] = [];
 
   let numIntervals = 0;
   let startPoint: Point | null = null;
@@ -64,12 +64,3 @@ export function mergeIntervals(intervals: Interval[]) {
 
   return result;
 }
-
-const INTERVAL_1 = new Interval(1, 3);
-const INTERVAL_2 = new Interval(3, 5);
-const INTERVAL_3 = new Interval(6, 8);
-const INTERVAL_4 = new Interval(7, 9);
-
-const INTERVALS_1 = [INTERVAL_1, INTERVAL_2, INTERVAL_3, INTERVAL_4];
-
-console.log(mergeIntervals(INTERVALS_1));
