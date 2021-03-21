@@ -7,6 +7,36 @@ Space Complexity: O(1)
 
 */
 
+export function findNumber(stack: Stack, target: number) {
+  if (stack === null) {
+    return false;
+  }
+
+  let temp = new Stack();
+  let found = false;
+
+  // if target node is found, then return true and break, otherwise push nodes to temp stack
+  while (!stack.isEmpty()) {
+    if (stack.peek() === target) {
+      found = true;
+      break;
+    }
+
+    let toAdd = stack.pop()!;
+
+    temp.push(toAdd);
+  }
+
+  // reset original stack by pushing temp stack nodes to original stack
+  while (!temp.isEmpty()) {
+    let toAdd = temp.pop()!;
+
+    stack.push(toAdd);
+  }
+
+  return found;
+}
+
 export class Stack {
   head: Node | null;
 
@@ -56,43 +86,3 @@ export class Node {
     this.next = next;
   }
 }
-
-export function findNumber(stack: Stack, target: number) {
-  if (stack === null) {
-    return false;
-  }
-
-  let temp = new Stack();
-  let found = false;
-
-  // if target node is found, then return true and break, otherwise push nodes to temp stack
-  while (!stack.isEmpty()) {
-    if (stack.peek() === target) {
-      found = true;
-      break;
-    }
-
-    let toAdd = stack.pop()!;
-
-    temp.push(toAdd);
-  }
-
-  // reset original stack by pushing temp stack nodes to original stack
-  while (!temp.isEmpty()) {
-    let toAdd = temp.pop()!;
-
-    stack.push(toAdd);
-  }
-
-  return found;
-}
-
-const STACK_1 = new Stack();
-
-STACK_1.push(1);
-STACK_1.push(2);
-STACK_1.push(3);
-
-console.log(findNumber(STACK_1, 2)); // true
-console.log(findNumber(STACK_1, 3)); // true
-console.log(findNumber(STACK_1, 4)); // false

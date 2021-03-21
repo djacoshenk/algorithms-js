@@ -48,22 +48,3 @@ export class ArrayStack {
     }
   }
 }
-
-const ARRAY_STACK = new ArrayStack(6);
-
-console.log(ARRAY_STACK);
-
-ARRAY_STACK.push(1, 2);
-ARRAY_STACK.push(1, 4);
-ARRAY_STACK.push(1, 6);
-ARRAY_STACK.push(2, 3);
-ARRAY_STACK.push(2, 5);
-ARRAY_STACK.push(2, 7);
-
-console.log(ARRAY_STACK);
-
-console.log(ARRAY_STACK.pop(1));
-
-ARRAY_STACK.push(1, 8);
-
-console.log(ARRAY_STACK);
