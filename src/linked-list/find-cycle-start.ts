@@ -7,16 +7,6 @@ Space Complexity: O(1)
 
 */
 
-export class Node {
-  data: number;
-  next: Node | null;
-
-  constructor(data: number, next: Node | null = null) {
-    this.data = data;
-    this.next = next;
-  }
-}
-
 export function findCycleStart(head: Node) {
   // advance fast and slow pointers to meet in the cycle
   let fast = head;
@@ -67,4 +57,14 @@ export function findCycleStart(head: Node) {
   }
 
   return front;
+}
+
+export class Node {
+  data: number;
+  next: Node | null;
+
+  constructor(data: number, next: Node | null = null) {
+    this.data = data;
+    this.next = next;
+  }
 }

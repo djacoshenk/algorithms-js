@@ -56,16 +56,3 @@ export class LinkedList {
     this.deleteNode(n.next, n);
   }
 }
-
-// create nodes
-const NODE_4 = new Node(4);
-const NODE_3 = new Node(3, NODE_4);
-const NODE_2 = new Node(2, NODE_3);
-const NODE_1 = new Node(1, NODE_2);
-
-// create linked list from nodes
-const LIST_1 = new LinkedList(NODE_1, NODE_4);
-
-LIST_1.deleteNode(NODE_2, NODE_1);
-
-console.log(LIST_1);

@@ -7,16 +7,6 @@ Space Complexity: O(1)
 
 */
 
-export class Node {
-  data: number;
-  next: Node | null;
-
-  constructor(data: number, next: Node | null = null) {
-    this.data = data;
-    this.next = next;
-  }
-}
-
 export function reverseList(head: Node) {
   if (head === null) {
     return null;
@@ -35,13 +25,12 @@ export function reverseList(head: Node) {
   return prev;
 }
 
-const NODE_6 = new Node(6);
-const NODE_5 = new Node(5, NODE_6);
-const NODE_4 = new Node(4, NODE_5);
-const NODE_3 = new Node(3, NODE_4);
-const NODE_2 = new Node(2, NODE_3);
-const NODE_1 = new Node(1, NODE_2);
+export class Node {
+  data: number;
+  next: Node | null;
 
-console.log(NODE_1);
-
-console.log(reverseList(NODE_1));
+  constructor(data: number, next: Node | null = null) {
+    this.data = data;
+    this.next = next;
+  }
+}

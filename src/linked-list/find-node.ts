@@ -35,20 +35,3 @@ export class LinkedList {
     return node;
   }
 }
-
-// create nodes
-const NODE_3 = new Node(3);
-const NODE_2 = new Node(2, NODE_3);
-const NODE_1 = new Node(1, NODE_2);
-
-// create linked list from nodes
-const LIST_1 = new LinkedList(NODE_1, NODE_3);
-
-// find node 1
-console.log(LIST_1.findNode(1));
-
-// find node 2
-console.log(LIST_1.findNode(2));
-
-// find node 3
-console.log(LIST_1.findNode(3));

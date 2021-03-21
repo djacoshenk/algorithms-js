@@ -7,36 +7,6 @@ Space Complexity: O(1)
 
 */
 
-export class Node {
-  data: number;
-  next: Node | null;
-
-  constructor(data: number, next: Node | null = null) {
-    this.data = data;
-    this.next = next;
-  }
-}
-
-export class LinkedList {
-  head: Node | null;
-  tail: Node | null;
-
-  constructor(head: Node | null = null, tail: Node | null = null) {
-    this.head = head;
-    this.tail = tail;
-  }
-
-  append(addTo: Node) {
-    if (!this.head || !this.tail) {
-      this.head = addTo;
-    } else {
-      this.tail.next = addTo;
-    }
-
-    this.tail = addTo;
-  }
-}
-
 export function sortList(input: LinkedList) {
   if (input == null) {
     return new LinkedList(); // empty list
@@ -96,13 +66,32 @@ export function appendList(result: LinkedList, toAppend: LinkedList) {
   result.tail = toAppend.tail;
 }
 
-const NODE_6 = new Node(0);
-const NODE_5 = new Node(2, NODE_6);
-const NODE_4 = new Node(1, NODE_5);
-const NODE_3 = new Node(0, NODE_4);
-const NODE_2 = new Node(1, NODE_3);
-const NODE_1 = new Node(2, NODE_2);
+export class Node {
+  data: number;
+  next: Node | null;
 
-const LIST_1 = new LinkedList(NODE_1, NODE_6);
+  constructor(data: number, next: Node | null = null) {
+    this.data = data;
+    this.next = next;
+  }
+}
 
-console.log(sortList(LIST_1));
+export class LinkedList {
+  head: Node | null;
+  tail: Node | null;
+
+  constructor(head: Node | null = null, tail: Node | null = null) {
+    this.head = head;
+    this.tail = tail;
+  }
+
+  append(addTo: Node) {
+    if (!this.head || !this.tail) {
+      this.head = addTo;
+    } else {
+      this.tail.next = addTo;
+    }
+
+    this.tail = addTo;
+  }
+}
