@@ -8,34 +8,6 @@ Space Complexity: O(V)
 
 */
 
-export class Graph {
-  nodes: Node[];
-
-  constructor(nodes: Node[] = []) {
-    this.nodes = nodes;
-  }
-}
-
-export class Node {
-  data: number;
-  neighbors: Node[];
-  state: string;
-  longestPath: number;
-
-  constructor(data: number) {
-    this.data = data;
-    this.neighbors = new Array<Node>();
-    this.state = NODE_STATES.UNVISITED;
-    this.longestPath = 0;
-  }
-}
-
-const NODE_STATES = {
-  VISITED: 'VISITED',
-  UNVISITED: 'UNVISITED',
-  VISITING: 'VISITING',
-};
-
 export function diameter(start: Node) {
   if (start === null) {
     return 0;
@@ -79,22 +51,30 @@ export function dfsVisit(node: Node, stack: Node[]) {
   stack.push(node);
 }
 
-const GRAPH_1 = new Graph();
+const NODE_STATES = {
+  VISITED: 'VISITED',
+  UNVISITED: 'UNVISITED',
+  VISITING: 'VISITING',
+};
 
-const NODE_1 = new Node(1);
-const NODE_2 = new Node(2);
-const NODE_3 = new Node(3);
-const NODE_4 = new Node(4);
-const NODE_5 = new Node(5);
-const NODE_6 = new Node(6);
+export class Graph {
+  nodes: Node[];
 
-GRAPH_1.nodes.push(NODE_1, NODE_2, NODE_3, NODE_4, NODE_5, NODE_6);
+  constructor(nodes: Node[] = []) {
+    this.nodes = nodes;
+  }
+}
 
-NODE_1.neighbors.push(NODE_2);
-NODE_1.neighbors.push(NODE_3);
-NODE_2.neighbors.push(NODE_4);
-NODE_3.neighbors.push(NODE_5);
-NODE_4.neighbors.push(NODE_6);
-NODE_5.neighbors.push(NODE_6);
+export class Node {
+  data: number;
+  neighbors: Node[];
+  state: string;
+  longestPath: number;
 
-console.log(diameter(NODE_1)); // 3
+  constructor(data: number) {
+    this.data = data;
+    this.neighbors = new Array<Node>();
+    this.state = NODE_STATES.UNVISITED;
+    this.longestPath = 0;
+  }
+}

@@ -7,6 +7,40 @@ Space Complexity:​ O(V)
 
 */
 
+export function printLevels(root: Node) {
+  let currentLevel = new Queue();
+  let nextLevel = new Queue();
+
+  currentLevel.enqueue(root);
+
+  root.state = NODE_STATES.VISITING;
+
+  while (!currentLevel.isEmpty()) {
+    let current = currentLevel.dequeue()!;
+
+    printCurrentHelper(current);
+
+    for (let neighbor of current.neighbors) {
+      if (neighbor.state === NODE_STATES.UNVISITED) {
+        nextLevel.enqueue(neighbor);
+        neighbor.state = NODE_STATES.VISITING;
+      }
+    }
+
+    current.state = NODE_STATES.VISITED;
+
+    if (currentLevel.isEmpty()) {
+      currentLevel = nextLevel;
+
+      nextLevel = new Queue();
+    }
+  }
+}
+
+function printCurrentHelper(current: Node) {
+  console.log(current);
+}
+
 const NODE_STATES = {
   VISITED: 'VISITED',
   UNVISITED: 'UNVISITED',
@@ -63,38 +97,4 @@ export class Queue {
       return false;
     }
   }
-}
-
-export function printLevels(root: Node) {
-  let currentLevel = new Queue();
-  let nextLevel = new Queue();
-
-  currentLevel.enqueue(root);
-
-  root.state = NODE_STATES.VISITING;
-
-  while (!currentLevel.isEmpty()) {
-    let current = currentLevel.dequeue()!;
-
-    printCurrentHelper(current);
-
-    for (let neighbor of current.neighbors) {
-      if (neighbor.state === NODE_STATES.UNVISITED) {
-        nextLevel.enqueue(neighbor);
-        neighbor.state = NODE_STATES.VISITING;
-      }
-    }
-
-    current.state = NODE_STATES.VISITED;
-
-    if (currentLevel.isEmpty()) {
-      currentLevel = nextLevel;
-
-      nextLevel = new Queue();
-    }
-  }
-}
-
-function printCurrentHelper(current: Node) {
-  console.log(current);
 }

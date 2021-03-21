@@ -7,32 +7,6 @@ Space Complexity: O(V) in worse case
 
 */
 
-const NODE_STATES = {
-  VISITED: 'VISITED',
-  UNVISITED: 'UNVISITED',
-  VISITING: 'VISITING',
-};
-
-export class Graph {
-  nodes: Node[];
-
-  constructor() {
-    this.nodes = [];
-  }
-}
-
-export class Node {
-  data: number;
-  neighbors: Node[];
-  state: string;
-
-  constructor(data: number) {
-    this.data = data;
-    this.neighbors = [];
-    this.state = NODE_STATES.UNVISITED;
-  }
-}
-
 export function dfs(graph: Graph, target: number) {
   // iterate over the nodes in the graph
   for (let node of graph.nodes) {
@@ -66,4 +40,30 @@ export function dfsVisit(node: Node, target: number) {
   node.state = NODE_STATES.VISITED;
 
   return false;
+}
+
+const NODE_STATES = {
+  VISITED: 'VISITED',
+  UNVISITED: 'UNVISITED',
+  VISITING: 'VISITING',
+};
+
+export class Graph {
+  nodes: Node[];
+
+  constructor() {
+    this.nodes = [];
+  }
+}
+
+export class Node {
+  data: number;
+  neighbors: Node[];
+  state: string;
+
+  constructor(data: number) {
+    this.data = data;
+    this.neighbors = [];
+    this.state = NODE_STATES.UNVISITED;
+  }
 }

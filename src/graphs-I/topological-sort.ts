@@ -7,6 +7,31 @@ Space Complexity: O(V)
 
 */
 
+export function topoSort(graph: Graph) {
+  let stack = new Stack();
+
+  for (let node of graph.nodes) {
+    if (node.state === NODE_STATES.UNVISITED) {
+      dfsVisit(node, stack);
+    }
+  }
+
+  return stack;
+}
+
+export function dfsVisit(node: Node, stack: Stack) {
+  node.state = NODE_STATES.VISITING;
+
+  for (let neighbor of node.neighbors) {
+    if (neighbor.state === NODE_STATES.VISITED) {
+      dfsVisit(neighbor, stack);
+    }
+  }
+
+  node.state = NODE_STATES.VISITED;
+  stack.push(node);
+}
+
 const NODE_STATES = {
   VISITED: 'VISITED',
   UNVISITED: 'UNVISITED',
@@ -50,29 +75,4 @@ export class Stack {
       this.head = node;
     }
   }
-}
-
-export function topoSort(graph: Graph) {
-  let stack = new Stack();
-
-  for (let node of graph.nodes) {
-    if (node.state === NODE_STATES.UNVISITED) {
-      dfsVisit(node, stack);
-    }
-  }
-
-  return stack;
-}
-
-export function dfsVisit(node: Node, stack: Stack) {
-  node.state = NODE_STATES.VISITING;
-
-  for (let neighbor of node.neighbors) {
-    if (neighbor.state === NODE_STATES.VISITED) {
-      dfsVisit(neighbor, stack);
-    }
-  }
-
-  node.state = NODE_STATES.VISITED;
-  stack.push(node);
 }
