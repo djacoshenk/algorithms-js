@@ -16,9 +16,9 @@ export class Queue {
   tail: Node | null;
   length: number;
 
-  constructor(head: Node | null = null, tail: Node | null = null) {
-    this.head = head;
-    this.tail = tail;
+  constructor() {
+    this.head = null;
+    this.tail = null;
     this.length = 0;
   }
 

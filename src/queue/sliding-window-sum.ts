@@ -7,6 +7,34 @@ Space Complexity: O(K), because we store at most K nodes in the queue
 
 */
 
+export function windowSum(arr: number[], windowSize: number) {
+  if (arr === null || arr.length === 0 || windowSize === 0) {
+    return null;
+  }
+
+  let sum = 0;
+  let queue = new Queue(arr.length);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (queue.length === windowSize) {
+      const front = queue.dequeue();
+
+      sum -= front;
+    }
+
+    queue.enqueue(arr[i]);
+    sum += arr[i];
+
+    if (queue.length === windowSize) {
+      printSum(sum);
+    }
+  }
+}
+
+function printSum(sum: number) {
+  console.log(sum);
+}
+
 export class Queue {
   arr: number[];
   front: number;
@@ -41,33 +69,3 @@ export class Queue {
     return data;
   }
 }
-
-export function windowSum(arr: number[], windowSize: number) {
-  if (arr === null || arr.length === 0 || windowSize === 0) {
-    return null;
-  }
-
-  let sum = 0;
-  let queue = new Queue(arr.length);
-
-  for (let i = 0; i < arr.length; i++) {
-    if (queue.length === windowSize) {
-      const front = queue.dequeue();
-
-      sum -= front;
-    }
-
-    queue.enqueue(arr[i]);
-    sum += arr[i];
-
-    if (queue.length === windowSize) {
-      printSum(sum);
-    }
-  }
-}
-
-function printSum(sum: number) {
-  console.log(sum);
-}
-
-windowSum([1, 3, 4, 5, 7, 8, 9], 3);

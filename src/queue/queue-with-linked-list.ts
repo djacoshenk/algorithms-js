@@ -45,13 +45,3 @@ export class Node {
     this.next = next;
   }
 }
-
-const QUEUE_1 = new Queue();
-
-QUEUE_1.enqueue(2);
-QUEUE_1.enqueue(4);
-QUEUE_1.enqueue(6);
-
-console.log(QUEUE_1.dequeue());
-
-console.log(QUEUE_1);

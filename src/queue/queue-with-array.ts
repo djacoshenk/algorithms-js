@@ -38,17 +38,3 @@ export class Queue {
     return result;
   }
 }
-
-const QUEUE_1 = new Queue(5);
-
-QUEUE_1.enqueue(3); // [3, , , , ]
-QUEUE_1.enqueue(4); // [3, 4, , , ]
-QUEUE_1.enqueue(5); // [3, 4, 5, , ]
-QUEUE_1.enqueue(7); // [3, 4, 5, 7, ]
-QUEUE_1.enqueue(8); // [3, 4, 5, 7, 8]
-
-console.log(QUEUE_1.dequeue()); // 3
-
-QUEUE_1.enqueue(9); // [9, 4, 5, 7, 8]
-
-console.log(QUEUE_1.dequeue()); // 4
