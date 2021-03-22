@@ -29,5 +29,3 @@ function fibonacciMemoizationHelper(
   memo.set(n, result);
   return result;
 }
-
-console.log(fibonacciMemoization(6)); // 8

@@ -75,5 +75,3 @@ function getLettersHelper(digit: number) {
 function printArray(buffer: string[], bufferIndex: number) {
   console.log(buffer.slice(0, bufferIndex));
 }
-
-printWords([2, 3, 4]);

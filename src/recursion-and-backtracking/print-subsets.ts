@@ -50,5 +50,3 @@ function printSubsetsHelper(
 function printArrayHelper(buffer: number[], bufferIndex: number) {
   console.log(buffer.slice(0, bufferIndex));
 }
-
-printSubsets([1, 2, 3]);

@@ -50,5 +50,3 @@ function printPermsHelper(
 function printArrayHelper(buffer: number[]) {
   console.log(buffer);
 }
-
-printPerms([1, 2, 3], 2);

@@ -55,5 +55,3 @@ function printCoinsHelper(
 function printArrayHelper(buffer: number[]) {
   console.log(buffer);
 }
-
-console.log(printCoins([1, 2, 5], 5));

@@ -49,5 +49,3 @@ function positivePower(x: number, power: number): number {
     return x * halfPower * halfPower;
   }
 }
-
-console.log(calculatePower(-1, 1));

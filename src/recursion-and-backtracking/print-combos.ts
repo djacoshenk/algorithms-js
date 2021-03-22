@@ -50,5 +50,3 @@ function printCombosHelper(
 function printArrayHelper(buffer: number[]) {
   console.log(buffer);
 }
-
-printCombos([1, 2, 3, 4, 5], 3);
