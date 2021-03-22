@@ -32,5 +32,3 @@ export function findTargetElement(arr: number[], target: number) {
 
   return -1;
 }
-
-console.log(findTargetElement([1, 2, 4, 7, 8, 9], 2)); // 1

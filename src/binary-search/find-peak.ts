@@ -11,7 +11,7 @@ A = [1,3,5] => Peak = 5
 */
 
 export function findPeak(arr: number[]) {
-  if (arr == null || arr.length === 0) {
+  if (arr.length === 0) {
     return -1;
   }
 
@@ -37,8 +37,3 @@ export function findPeak(arr: number[]) {
 
   return -1;
 }
-
-console.log(findPeak([1, 3, 4, 5, 2])); // 3
-console.log(findPeak([5, 3, 1])); // 0
-console.log(findPeak([1, 3, 5])); // 2
-console.log(findPeak([7, 6, 5, 1, 2, 3, 4, 0])); // 0
