@@ -57,5 +57,3 @@ export function stringSearch(str: string, target: string) {
 
   return -1;
 }
-
-console.log(stringSearch('hello world', 'orl')); // 7
