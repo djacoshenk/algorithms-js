@@ -13,18 +13,22 @@ Space Complexity:​ O(N)
 export function hasOverlap(intervals: Interval[]) {
   let points: Point[] = [];
 
+  // create points for each interval - mark the starting time
   for (let interval of intervals) {
     points.push(new Point(interval.start, true));
     points.push(new Point(interval.end, false));
   }
 
+  // sort the points from low to high
   points.sort((a, b) => a.time - b.time);
 
   let count = 0;
 
+  // if a starting time is encountered, increment the count, otherwise decrement the count
   for (let i = 0; i < points.length; i++) {
     count = points[i].isStart ? count + 1 : count - 1;
 
+    // if count is > 1, then there is an overlap
     if (count > 1) {
       return true;
     }

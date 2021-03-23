@@ -8,26 +8,6 @@ Output = ​(1,5), (6,9)
 
 */
 
-export class Point {
-  time: number;
-  isStart: boolean;
-
-  constructor(time: number, isStart: boolean) {
-    this.time = time;
-    this.isStart = isStart;
-  }
-}
-
-export class Interval {
-  start: number;
-  end: number;
-
-  constructor(start: number, end: number) {
-    this.start = start;
-    this.end = end;
-  }
-}
-
 export function mergeIntervals(intervals: Interval[]) {
   let points: Point[] = [];
 
@@ -63,4 +43,24 @@ export function mergeIntervals(intervals: Interval[]) {
   }
 
   return result;
+}
+
+export class Point {
+  time: number;
+  isStart: boolean;
+
+  constructor(time: number, isStart: boolean) {
+    this.time = time;
+    this.isStart = isStart;
+  }
+}
+
+export class Interval {
+  start: number;
+  end: number;
+
+  constructor(start: number, end: number) {
+    this.start = start;
+    this.end = end;
+  }
 }
