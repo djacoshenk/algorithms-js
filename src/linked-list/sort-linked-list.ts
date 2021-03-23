@@ -70,9 +70,9 @@ export class Node {
   data: number;
   next: Node | null;
 
-  constructor(data: number, next: Node | null = null) {
+  constructor(data: number) {
     this.data = data;
-    this.next = next;
+    this.next = null;
   }
 }
 
@@ -80,9 +80,9 @@ export class LinkedList {
   head: Node | null;
   tail: Node | null;
 
-  constructor(head: Node | null = null, tail: Node | null = null) {
-    this.head = head;
-    this.tail = tail;
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
 
   append(addTo: Node) {

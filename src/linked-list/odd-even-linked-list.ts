@@ -19,16 +19,16 @@ export function getOddEven(input: LinkedList) {
   let even = new LinkedList();
 
   let current = input.head;
-  let index = 0;
+  let index = 1;
 
   while (current !== null) {
-    index++;
-
     let destination = index % 2 === 0 ? even : odd;
 
     destination.append(current);
 
     current = current.next;
+
+    index++;
   }
 
   // set tail nodes' next to null
