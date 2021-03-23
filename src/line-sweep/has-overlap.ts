@@ -10,26 +10,6 @@ Space Complexity:​ O(N)
 
 */
 
-export class Point {
-  time: number;
-  isStart: boolean;
-
-  constructor(time: number, isStart: boolean) {
-    this.time = time;
-    this.isStart = isStart;
-  }
-}
-
-export class Interval {
-  start: number;
-  end: number;
-
-  constructor(start: number, end: number) {
-    this.start = start;
-    this.end = end;
-  }
-}
-
 export function hasOverlap(intervals: Interval[]) {
   let points: Point[] = [];
 
@@ -51,4 +31,24 @@ export function hasOverlap(intervals: Interval[]) {
   }
 
   return false;
+}
+
+export class Point {
+  time: number;
+  isStart: boolean;
+
+  constructor(time: number, isStart: boolean) {
+    this.time = time;
+    this.isStart = isStart;
+  }
+}
+
+export class Interval {
+  start: number;
+  end: number;
+
+  constructor(start: number, end: number) {
+    this.start = start;
+    this.end = end;
+  }
 }
