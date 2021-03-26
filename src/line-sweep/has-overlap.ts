@@ -25,8 +25,8 @@ export function hasOverlap(intervals: Interval[]) {
   let count = 0;
 
   // if a starting time is encountered, increment the count, otherwise decrement the count
-  for (let i = 0; i < points.length; i++) {
-    count = points[i].isStart ? count + 1 : count - 1;
+  for (let point of points) {
+    point.isStart ? count++ : count--;
 
     // if count is > 1, then there is an overlap
     if (count > 1) {
