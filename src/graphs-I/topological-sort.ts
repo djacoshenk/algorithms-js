@@ -23,7 +23,7 @@ export function dfsVisit(node: Node, stack: Stack) {
   node.state = NODE_STATES.VISITING;
 
   for (let neighbor of node.neighbors) {
-    if (neighbor.state === NODE_STATES.VISITED) {
+    if (neighbor.state === NODE_STATES.UNVISITED) {
       dfsVisit(neighbor, stack);
     }
   }

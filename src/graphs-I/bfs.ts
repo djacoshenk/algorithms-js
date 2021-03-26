@@ -7,18 +7,7 @@ Space Complexity: O(V)
 
 */
 
-export function bfs(graph: Graph, target: number) {
-  // iterate over nodes in graph
-  for (let node of graph.nodes) {
-    if (node.state === NODE_STATES.UNVISITED && bfsVisit(node, target)) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-export function bfsVisit(node: Node, target: number) {
+function bfsVisit(node: Node, target: number) {
   let queue = new Queue(); // initialize an empty queue
   queue.enqueue(node); // enqueue the node
   node.state = NODE_STATES.VISITING; // mark node as visiting
@@ -39,6 +28,17 @@ export function bfsVisit(node: Node, target: number) {
     }
 
     current.state = NODE_STATES.VISITED;
+  }
+
+  return false;
+}
+
+export function bfs(graph: Graph, target: number) {
+  // iterate over nodes in graph
+  for (let node of graph.nodes) {
+    if (node.state === NODE_STATES.UNVISITED && bfsVisit(node, target)) {
+      return true;
+    }
   }
 
   return false;

@@ -1,6 +1,6 @@
 /*
 
-Given a graph and a node N, print the Graph in order of distancefrom N. Each level should be in a new line.
+Given a graph and a node N, print the Graph in order of distance from N. Each level should be in a new line.
 
 Time Complexity:​ O(V+E)
 Space Complexity:​ O(V)
