@@ -53,14 +53,6 @@ const NODE_STATES = {
   VISITING: 'VISITING',
 };
 
-export class Graph {
-  nodes: Node[];
-
-  constructor(nodes: Node[] = []) {
-    this.nodes = nodes;
-  }
-}
-
 export class Node {
   data: number;
   neighbors: Node[];
