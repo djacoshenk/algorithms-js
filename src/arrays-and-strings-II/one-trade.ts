@@ -8,7 +8,7 @@ Space Complexity: O(1)
 */
 
 export function oneTrade(prices: number[]) {
-  if (prices === null || prices.length < 2) {
+  if (prices.length < 2) {
     return 0;
   }
 
@@ -22,8 +22,3 @@ export function oneTrade(prices: number[]) {
 
   return maxTrade;
 }
-
-console.log(oneTrade([5, 10, 7, 2, 6, 4, 7, 8, 5])); // 6
-console.log(oneTrade([5])); // 0
-console.log(oneTrade([5, 10])); // 5
-console.log(oneTrade([10, 9, 7, 6, 4, 2, 1])); // 0
