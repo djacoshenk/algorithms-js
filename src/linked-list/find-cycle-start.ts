@@ -47,6 +47,7 @@ export function findCycleStart(head: Node) {
   // find start of cycle
   let front = head;
   let back = head;
+
   for (let i = 0; i < cycleNodes; i++) {
     front = front.next!;
   }

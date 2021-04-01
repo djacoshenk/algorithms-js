@@ -44,13 +44,3 @@ export class Node {
     this.next = next;
   }
 }
-
-export class LinkedList {
-  head: Node | null;
-  tail: Node | null;
-
-  constructor(head: Node | null = null, tail: Node | null = null) {
-    this.head = head;
-    this.tail = tail;
-  }
-}
