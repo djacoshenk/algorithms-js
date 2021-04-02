@@ -26,7 +26,18 @@ export class LinkedList {
     this.tail = tail;
   }
 
-  deleteNode(n: Node, prev: Node) {
+  appendNode(addTo: Node) {
+    if (this.head === null || this.tail === null) {
+      this.head = addTo;
+      this.tail = addTo;
+    } else {
+      this.tail.next = addTo;
+    }
+
+    this.tail = addTo;
+  }
+
+  deleteNode(n: Node, prev: Node | null) {
     if (n === null) {
       return;
     }
@@ -37,7 +48,6 @@ export class LinkedList {
 
     if (n === this.tail) {
       this.tail = prev;
-      this.tail.next = null;
     }
 
     if (prev !== null) {
