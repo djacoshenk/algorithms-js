@@ -8,6 +8,10 @@ Output: [1, 2, -1, 2]
 */
 
 export function maxSubarray(arr: number[]) {
+  if (arr.length === 0) {
+    return arr;
+  }
+
   let maxEndingHere = arr[0];
   let maxSum = arr[0];
   let end = 0;
