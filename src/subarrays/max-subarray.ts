@@ -37,3 +37,9 @@ export function maxSubarray(arr: number[]) {
 
   return null;
 }
+
+// [1, 2, -1, 2, -3, 2, -5]
+//  1  3   2  4   1  3  -2  maxEndingHere
+//  1  3   3  4   4  4   4  maxSum
+//            ^
+//           end
