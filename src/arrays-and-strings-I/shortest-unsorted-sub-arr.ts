@@ -33,7 +33,7 @@ export function shortestUnsortedSubArr(arr: number[]) {
   }
 
   // find bump
-  while (end > 0) {
+  while (end > start) {
     if (arr[end] < arr[end - 1]) {
       break;
     }
