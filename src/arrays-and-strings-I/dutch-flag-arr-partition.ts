@@ -11,17 +11,17 @@ Space Complexity: O(1)
 */
 
 export function dutchFlagArrPartition(arr: number[], pivot: number) {
-  let start = 0;
-  let end = arr.length - 1;
+  let low = 0;
+  let high = arr.length - 1;
   let i = 0;
 
-  while (i <= end) {
+  while (i <= high) {
     if (arr[i] > pivot) {
-      [arr[i], arr[end]] = [arr[end], arr[i]];
-      end--;
+      [arr[i], arr[high]] = [arr[high], arr[i]];
+      high--;
     } else if (arr[i] < pivot) {
-      [arr[i], arr[start]] = [arr[start], arr[i]];
-      start++;
+      [arr[i], arr[low]] = [arr[low], arr[i]];
+      low++;
       i++;
     } else {
       i++;
