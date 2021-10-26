@@ -10,9 +10,13 @@ Space Complexity: O(1)
 
 */
 
-export function maxSumSubarray(arr: number[]) {
+export function maxSumSubarray(arr: number[]): number {
   if (arr.length === 0) {
-    return arr;
+    return 0;
+  }
+
+  if (arr.length === 1) {
+    return arr[0];
   }
 
   let maxEndingHere = arr[0];
