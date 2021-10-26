@@ -7,7 +7,7 @@ Output: [1, 2, -1, 2]
 
 */
 
-export function maxSubarray(arr: number[]) {
+export function maxSubarray(arr: number[]): number[] | null {
   if (arr.length === 0) {
     return arr;
   }
