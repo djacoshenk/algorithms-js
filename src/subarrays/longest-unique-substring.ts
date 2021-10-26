@@ -14,29 +14,23 @@ export function longestUniqueSubstring(str: string) {
     return null;
   }
 
-  let map = new Map<string, number>();
-  let start = 0;
-  let end = 0;
-  let longest = 1;
+  let sub = str[0];
+  let longest = str[0];
 
-  map.set(str.charAt(0), 0);
+  for (let i = 1; i < str.length; i++) {
+    const char = str[i];
+    const index = sub.indexOf(char);
 
-  while (end < str.length - 1) {
-    // expand end pointer
-    end++;
-    let toAdd = str.charAt(end);
-
-    if (map.has(toAdd) && map.get(toAdd)! >= start) {
-      start = map.get(toAdd)! + 1;
+    if (index === -1) {
+      sub += char;
+    } else {
+      sub = sub.slice(index + 1) + char;
     }
 
-    map.set(toAdd, end);
-
-    // update result
-    if (end - start + 1 > longest) {
-      longest = end - start + 1;
+    if (sub.length > longest.length) {
+      longest = sub;
     }
   }
 
-  return str.slice(start, end + 1);
+  return longest;
 }
