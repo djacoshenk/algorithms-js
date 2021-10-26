@@ -2,8 +2,8 @@
 
 Given an array of integers, both -ve and +ve, find a contiguous subarray that sums to a number X.
 
-Input: [2,4,-2,1,-3,5,-3], X = 5 
-Output: [2,4,-2,1]
+Input: [2, 4, -2, 1, -3, 5, -3], X = 5 
+Output: [2, 4, -2, 1]
 
 Time Complexity: O(n)
 Space Complexity: O(n)
@@ -37,7 +37,7 @@ export function targetSumSubarray(arr: number[], target: number) {
   return null;
 }
 
-[2, -1, 0, 3, 2, 1, -1];
+// [2, -1, 0, 3, 2, 1, -1];
 
 // 0, 1, 2, 3, 4, 5, 6  i
 // 2, 1, 1, 4, 6, 7, 6  sum
