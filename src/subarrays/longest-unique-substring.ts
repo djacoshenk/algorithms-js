@@ -18,13 +18,13 @@ export function longestUniqueSubstring(str: string) {
   let longest = str[0];
 
   for (let i = 1; i < str.length; i++) {
-    const char = str[i];
-    const index = sub.indexOf(char);
+    const char = str[i]; // current char of the string we're inspecting
+    const index = sub.indexOf(char); // check if our unique substr contains the char (-1 means the char is unique)
 
     if (index === -1) {
-      sub += char;
+      sub += char; // if char is unique to the substr, add it
     } else {
-      sub = sub.slice(index + 1) + char;
+      sub = sub.slice(index + 1) + char; // if the char is not unique, slice from the next letter and add the char
     }
 
     if (sub.length > longest.length) {
